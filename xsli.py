@@ -50,8 +50,8 @@ def parse_html(html):
     patt = re.compile('<h1><span itemprop="name">(.*?)</span>(.*?)</h1>',re.S)
     infos = re.findall(patt,html)
     # 目录剔除空格 linux下的目录不一样
-    f_path = lpath +"/"+ "".join(infos[0])
-    fpic_path = "".join(f_path.split())
+    f_path = lpath +"/"+ "".join(infos[0]).replace('(','').replace(')','').replace('/','')
+    # fpic_path = "".join(f_path.split())
 
     mkdir(fpic_path)
     links = selector.xpath('//*[@id="gallery"]/a/img/@src')
