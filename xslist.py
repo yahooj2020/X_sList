@@ -45,7 +45,7 @@ def mkdir(path):
         return False
 
 def parse_html(html):
-    lpath = os.getcwd()
+    
     selector = etree.HTML(html)
     patt = re.compile('<h1><span itemprop="name">(.*?)</span>(.*?)</h1>',re.S)
     infos = re.findall(patt,html)
@@ -71,6 +71,7 @@ def parse_html(html):
 
 
 if __name__ == "__main__":
+    lpath = os.getcwd()
     for num in range(1,10000):
 
         url = 'https://xslist.org/zh/model/{0}.html'.format(num)
