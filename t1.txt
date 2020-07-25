@@ -1,0 +1,14 @@
+https://xslist.org/kojav/model2/1000/1250.jpg
+https://m1.xslist.org/gallery/1000/1250/1593395457.jpg
+https://m1.xslist.org/gallery/1000/1250/1581419906.jpg
+https://m1.xslist.org/gallery/1000/1250/1581416232.jpg
+https://m1.xslist.org/gallery/1000/1250/1581416013.jpg
+https://m1.xslist.org/gallery/1000/1250/1581413033.jpg
+https://m1.xslist.org/gallery/1000/1250/1580281120.jpg
+https://m1.xslist.org/gallery/1000/1250/1579314369.jpg
+https://m1.xslist.org/gallery/1000/1250/1579313904.jpg
+https://m1.xslist.org/gallery/1000/1250/1578029271.jpg
+https://m1.xslist.org/gallery/1000/1250/1578028277.jpg
+https://m1.xslist.org/gallery/1000/1250/1578028078.jpg
+https://m1.xslist.org/gallery/1000/1250/1578027696.jpg
+find . -inum  1966081  -exec rm {} \;
