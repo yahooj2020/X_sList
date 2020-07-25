@@ -24,33 +24,7 @@ def get_one_page(url):
         return None
 
 
-def mkdir(path):
-    # 引入模块
-    import os
 
-    # 去除首位空格
-    path = path.strip()
-    # 去除尾部 \ 符号
-    path = path.rstrip("/")
-
-    # 判断路径是否存在
-    # 存在     True
-    # 不存在   False
-    isExists = os.path.exists(path)
-
-    # 判断结果
-    if not isExists:
-        # 如果不存在则创建目录
-         # 创建目录操作函数
-        os.makedirs(path)
-
-        print(path + ' 创建成功')
-        return True
-    else:
-        # 如果目录存在则不创建，并提示目录已存在
-        print(path + ' 目录已存在')
-
-        return False
 
 def parse_html(html):
     lpath = os.getcwd()
@@ -61,11 +35,21 @@ def parse_html(html):
     f_path = lpath +"/"+ "".join(infos[0]).replace('(','').replace(')','').replace('/','')
     ff_path = "".join(f_path.split())
 
-    mkdir(ff_path)
+    isExists = os.path.exists(ff_path)
+        if not isExists:
+        # 如果不存在则创建目录
+         # 创建目录操作函数
+        os.makedirs(isExists)
+
+        print(isExists + ' 创建成功')
+        return True
+    else:
+        # 如果目录存在则不创建，并提示目录已存在
+        print(isExists + ' 目录已存在')
+    
     links = selector.xpath('//*[@id="gallery"]/a/img/@src')
-    print(infos)
-    print(ff_path)
-    print(links)
+
+
     for one_url in links:
 
         cmd = 'wget -P {0} {1}'.format(f_path,one_url)
