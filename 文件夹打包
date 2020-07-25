@@ -1,26 +1,25 @@
 
-tar zcf X_sList.tar X_sList
+zip -r m.zip X_sList
 
 
-tar 打包当前目录下文件但不包括该录
-今天想打包一些文件，但是不想把该目录打包进去
+Linux文件文件夹的压缩和解压
 
-比如我想把test目录下文件打个包，安装正常的命令来
+1.zip命令
 
-tar zcf test.tar.gz test 这样肯定会把test目录也打进去，解压后肯定是test目录，然后是目录下的其他文件，但是我不想这样，我想直接解压后就是目录下的文件，而不想要test目录
+例如：zip -r mysql.zip mysql 该句命令的含义是：将mysql文件夹压缩成mysql.zip
 
-于是乎有了以下解决方法
+zip -r abcdef.zip abc def.txt 这句命令的意思是将文件夹abc和文件def.txt压缩成一个压缩包abcdef.zip
 
-第一
+2.unzip命令
 
-进入到test目录下面打包
+与zip命令相反，这是解压命令，用起来很简单。 如：unzip mysql.zip 在当前目录下直接解压mysql.zip。
 
-cd test
+3.tar命令
 
-tar zcf test.tar.gz *
+例如：tar -cvf 123.tar file1 file2 dir1 该句命令实现一个tar压缩，它是将两个文件（file1和file2）和一个文件夹(dir1)压缩成一个123.tar文件。
 
-第二
+tar -zxvf apache-tomcat-7.0.75.tar.gz 该命令在解压安装tomcat时使用，是将apache-tomcat.7.0.75.tar.gz直接解压到当前目录下。tar同时具有压缩的解压的功能，使用时根据参数和命令结构区分。
 
-tar zcf test.tar.gz -C test/ .
+结语
 
-注意最后面还有一个点，不要忘了
+压缩和解压命令还有很多可配置的参数，如解压缩时要不要覆盖原有的文件等，本文属于初步接触者学习使用，不对太复杂的参数做说明，不然初学者还没入门就更迷糊了。
