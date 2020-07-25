@@ -1,10 +1,12 @@
-Linux ÏµÍ³ÖÐ°üº¬ÌØÊâ×Ö·û»òÖÐÎÄµÄÎÄ¼þÃûÎÞ·¨É¾³ý
-ÏµÍ³ÖÐ »áÓöµ½ Ò»Ð©ÎÄ¼þÃû°üº¬ÌØÊâ×Ö·û»òÕßÖÐÎÄÃû£¬ÎÞ·¨Õý³£É¾³ý
+Linux ç³»ç»Ÿä¸­åŒ…å«ç‰¹æ®Šå­—ç¬¦æˆ–ä¸­æ–‡çš„æ–‡ä»¶åæ— æ³•åˆ é™¤
+ç³»ç»Ÿä¸­ ä¼šé‡åˆ° ä¸€äº›æ–‡ä»¶ååŒ…å«ç‰¹æ®Šå­—ç¬¦æˆ–è€…ä¸­æ–‡åï¼Œæ— æ³•æ­£å¸¸åˆ é™¤
 
-¿ÉÒÔÀûÓÃÎÄ¼þµÄinodeºÅÀ´É¾³ý
+å¯ä»¥åˆ©ç”¨æ–‡ä»¶çš„inodeå·æ¥åˆ é™¤
 
- ls -i    £¨¿ÉÒÔ¿´¶ÔÎÄ¼þ¶ÔÓ¦µÄinodeºÅ£©
+ ls -i    ï¼ˆå¯ä»¥çœ‹å¯¹æ–‡ä»¶å¯¹åº”çš„inodeå·ï¼‰
 
  
 
-find . -inum  inodeºÅ  -exec rm {} \;        #É¾³ý£¬µ±È»²»Ö¹¿ÉÒÔÓÃÀ´É¾³ý¡¢mvµÈÃüÁîÒ²ÐÐ
+find . -inum  inodeå·  -exec rm {} \;        #åˆ é™¤ï¼Œå½“ç„¶ä¸æ­¢å¯ä»¥ç”¨æ¥åˆ é™¤ã€mvç­‰å‘½ä»¤ä¹Ÿè¡Œ
+
+ls -i | grep 389 | xargs rm -rf {}
