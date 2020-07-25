@@ -1,0 +1,26 @@
+
+tar zcf X_sList.tar X_sList
+
+
+tar 打包当前目录下文件但不包括该录
+今天想打包一些文件，但是不想把该目录打包进去
+
+比如我想把test目录下文件打个包，安装正常的命令来
+
+tar zcf test.tar.gz test 这样肯定会把test目录也打进去，解压后肯定是test目录，然后是目录下的其他文件，但是我不想这样，我想直接解压后就是目录下的文件，而不想要test目录
+
+于是乎有了以下解决方法
+
+第一
+
+进入到test目录下面打包
+
+cd test
+
+tar zcf test.tar.gz *
+
+第二
+
+tar zcf test.tar.gz -C test/ .
+
+注意最后面还有一个点，不要忘了
