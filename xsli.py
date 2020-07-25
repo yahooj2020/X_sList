@@ -50,7 +50,7 @@ def parse_html(html):
     patt = re.compile('<h1><span itemprop="name">(.*?)</span>(.*?)</h1>',re.S)
     infos = re.findall(patt,html)
     # 目录剔除空格 linux下的目录不一样
-    f_path = lpath +"/"+ "".join(infos[0]).replace('(','').replace(')','').replace('/','')
+    f_path = lpath +"/"+ "".join(infos[0])
     fpic_path = "".join(f_path.split())
 
     mkdir(fpic_path)
@@ -60,7 +60,7 @@ def parse_html(html):
     print(links)
     for one_url in links:
 
-        cmd = 'wget -P {0} {1}'.format(fpic_path,one_url)
+        cmd = 'wget -P {0} {1}'.format(f_path,one_url)
         subprocess.call(cmd, shell=True)
 
         print(cmd)
