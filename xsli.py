@@ -13,7 +13,6 @@ import urllib.request
 import subprocess
 
 
-
 def get_one_page(url):
     try:
         response = requests.get(url)
@@ -33,7 +32,7 @@ def mkdir(path):
     # 判断结果
     if not isExists:
         # 如果不存在则创建目录
-         # 创建目录操作函数
+        # 创建目录操作函数
         os.makedirs(path)
 
         print(path + ' 创建成功')
@@ -44,14 +43,14 @@ def mkdir(path):
 
         return False
 
+
 def parse_html(html):
-    
     selector = etree.HTML(html)
-    patt = re.compile('<h1><span itemprop="name">(.*?)</span>(.*?)</h1>',re.S)
-    infos = re.findall(patt,html)
+    patt = re.compile('<h1><span itemprop="name">(.*?)</span>(.*?)</h1>', re.S)
+    infos = re.findall(patt, html)
     # 目录剔除空格 linux下的目录不一样
-    f_path = lpath +"/"+ "".join(infos[0]).replace('(','').replace(')','').replace('/','')
-    # fpic_path = "".join(f_path.split())
+    f_path = "/root/X_sList/" + "".join(infos[0]).replace('(', '').replace(')', '').replace('/', '')
+    fpic_path = "".join(f_path.split())
 
     mkdir(fpic_path)
     links = selector.xpath('//*[@id="gallery"]/a/img/@src')
@@ -59,20 +58,15 @@ def parse_html(html):
     print(fpic_path)
     print(links)
     for one_url in links:
-
-        cmd = 'wget -P {0} {1}'.format(f_path,one_url)
+        cmd = 'wget -P {0} {1}'.format(fpic_path, one_url)
         subprocess.call(cmd, shell=True)
 
         print(cmd)
 
 
-
-
-
-
 if __name__ == "__main__":
-    lpath = os.getcwd()
-    for num in range(1,10000):
+
+    for num in range(1, 10000):
 
         url = 'https://xslist.org/zh/model/{0}.html'.format(num)
         print(url)
